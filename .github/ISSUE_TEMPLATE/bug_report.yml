@@ -23,6 +23,14 @@ body:
 
             People using Linphone or its related projects within the scope of their company job are invited to contact [Belledonne Communications](https://linphone.org/contact#content-bottom3) in order to obtain commercial support.
 
+- type: markdown
+  attributes:
+    value: |
+            # Useful links
+            [Linphone.org](https://linphone.org)
+            [Linphone commercial contact](https://linphone.org/contact#content-bottom3)
+            Linphone Vulnerability/Security contact: vulnerabilities@linphone.org
+            [Contributor agreement (to sign and to return to sales@belledonne-communications.com for a pull request)](https://linphone.org/sites/default/files/bc-contributor-agreement_0.pdf)
 
 - type: textarea
   attributes:
@@ -31,8 +39,10 @@ body:
     description: |
                   - For which purpose do you use the project ?
                   - With which software/hardware it is integrated ?
-    value: |
-            A clear and concise description of what the bug is.
+    placeholder: |
+            I use the linphone-sdk in the Linphone-desktop Linux version with sip.linphone.org for my company. I want to do a simple call between an Android phone and a Linux client.
+  validations:
+    required: true
 
 - type: textarea
   attributes:
@@ -42,15 +52,20 @@ body:
             - OS: [e.g. Android 11]
             - Version of the App [e.g. 4.3.1]
             - Version of the SDK [e.g 4.4.16]
+
+            Complete it multiple time if there are multiple devices involved.
+            Please note that the issue has more chances to be read if you report a bug seen in the latest version of the SDK.
   validations:
     required: true
 
-- type: markdown
+- type: textarea
   attributes:
+    label: Expected behaviour
+    description: "A clear and concise description of what you expected to happen."
     value: |
-            **Expected behavior**
-            A clear and concise description of what you expected to happen.
-            **Please complete the following information**
+            I wanted to do a simple call with the Linux client calling the Android phone. However, the phone doesn't ring when it is asleep.
+  validations:
+    required: true
 
 - type: textarea
   attributes:
@@ -61,45 +76,42 @@ body:
             2. Click on '....'
             3. Scroll down to '....'
             4. See error
-    value: operating system
   validations:
     required: true
-
-- type: textarea
-  attributes:
-    label: 'SDK logs'
-    description: |
-                  Enable debug logs in advanced section of the settings, restart the app, reproduce the issue and then go to About page, click on "Send logs" and copy/paste the link here.
-  validations:
-    required: true
-
-- type: textarea
-  attributes:
-    label: 'Adb logcat logs'
-    description: |
-                  In case of a crash of the app, please also provide the stack trace of the crash using adb logcat.
-  validations:
-    required: true
-
-- type: textarea
-  attributes:
-    label: 'Screenshots'
-    description: |
-                  If applicable, add screenshots to help explain your problem.
-  validations:
-    required: false
-
-- type: textarea
-  attributes:
-    label: 'Pcap file'
-    description: |
-                  If applicable, join a pcap file of your issue (done with Wireshark or TCPDump, for example)
-  validations:
-    required: false
 
 - type: textarea
   attributes:
     label: 'Additional context'
     placeholder: Add any other context about the problem here.
+
+- type: markdown
+  attributes:
+    value: |
+            # Logs
+            ## SDK logs
+            Enable debug logs in advanced section of the settings, restart the app, reproduce the issue and then go to About page, click on "Send logs" and copy/paste the link here.
+
+- type: input
+  attributes:
+    label: 'SDK logs URL'
   validations:
-    required: false
+    required: true
+
+- type: markdown
+  attributes:
+    value: |
+            ## SDK crash logs
+            In case of a crash of the app related to the SDK, please also provide the backtrace of the crash in attachments using adb logcat (Android) or the device console (iOS).
+            For desktop versions, you can get the backtrace from a core dump.
+
+- type: markdown
+  attributes:
+    value: |
+            # Screenshots
+            Please add screenshots in attachments to help us to understand your problem.
+
+- type: markdown
+  attributes:
+    value: |
+              # Pcap file
+              If this is a network issue, join a pcap file of your attempt in attachments (done with Wireshark or TCPDump, for example)
